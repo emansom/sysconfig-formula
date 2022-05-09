@@ -23,3 +23,7 @@ See `pillar.example` file for configuration examples.
 ### sysconfig.proxy
 
 This state manages `/etc/sysconfig/proxy` configuration file.
+
+### sysconfig.network\_scripts
+
+This state manages network configuration files in the `/etc/sysconfig/network-scripts` directory.
