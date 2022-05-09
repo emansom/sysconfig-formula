@@ -9,6 +9,7 @@ sysconfig_netcfg_{{ label | to_snake_case }}_file:
     - user: root
     - group: root
     - mode: 0644
+    - replace: False
 
 sysconfig_netcfg_{{ label | to_snake_case }}_content:
   file.keyvalue:
