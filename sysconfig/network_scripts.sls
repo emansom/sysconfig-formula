@@ -16,7 +16,13 @@ sysconfig_netcfg_{{ label | to_snake_case }}_content:
     - key_values:
     {%- for option_values in cfg %}
       {%- for opt, val in option_values.items() %}
-        {{ opt }}: {{ val|string|upper }}
+        {%- if val is sameas True %}
+        {{ opt|string|upper }}: yes
+        {%- elif val is sameas False %}
+        {{ opt|string|upper }}: no
+        {%- else %}
+        {{ opt|string|upper }}: {{ val|string }}
+        {%- endif %}
       {%- endfor %}
     {%- endfor %}
     - append_if_not_found: True
