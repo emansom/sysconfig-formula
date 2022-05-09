@@ -14,7 +14,7 @@ sysconfig_netcfg_{{ label | to_snake_case }}_content:
   file.keyvalue:
     - name: /etc/sysconfig/network-scripts/{{ label }}
     - key_values:
-    {%- for option_values in cfg }} %}
+    {%- for option_values in cfg %}
       {%- for opt, val in option_values.items() %}
       - {{ opt }}: {{ val }}
       {%- endfor %}
