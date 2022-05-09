@@ -12,7 +12,7 @@ sysconfig_netcfg_{{ label | to_snake_case }}_file:
 
 sysconfig_netcfg_{{ label | to_snake_case }}_content:
   ini.options_present:
-    - sections: {{ cfg|yaml_encode }}
+    - sections: {{ cfg }}
     - require:
       - file: sysconfig_netcfg_{{ label | to_snake_case }}_file
 {% endfor %}
