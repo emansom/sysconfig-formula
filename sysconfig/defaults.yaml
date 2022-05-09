@@ -1,5 +1,5 @@
 sysconfig:
-  network-scripts: {}
+  network_scripts: {}
   proxy:
     config: /etc/sysconfig/proxy
     enabled: no
