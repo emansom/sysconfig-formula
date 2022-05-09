@@ -17,9 +17,9 @@ sysconfig_netcfg_{{ label | to_snake_case }}_content:
     {%- for option_values in cfg %}
       {%- for opt, val in option_values.items() %}
         {%- if val is sameas True %}
-        {{ opt|string|upper }}: yes
+        {{ opt|string|upper }}: {{ "yes"|yaml_encode }}
         {%- elif val is sameas False %}
-        {{ opt|string|upper }}: no
+        {{ opt|string|upper }}: {{ "no"|yaml_encode }}
         {%- else %}
         {{ opt|string|upper }}: {{ val|string }}
         {%- endif %}
