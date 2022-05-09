@@ -8,6 +8,7 @@ SaltStack formula for managing system proxy settings on SUSE distributions.
 * [General notes](#general-notes)
 * [Available states](#available-states)
   * [sysconfig.proxy](#sysconfig.proxy)
+  * [sysconfig.network\_scripts](#sysconfig.network\_scripts)
 
 ## General notes
 
