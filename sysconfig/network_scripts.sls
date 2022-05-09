@@ -11,8 +11,10 @@ sysconfig_netcfg_{{ label | to_snake_case }}_file:
     - mode: 0644
 
 sysconfig_netcfg_{{ label | to_snake_case }}_content:
-  ini.options_present:
-    - sections: {{ cfg }}
+  file.keyvalue:
+    - name: /etc/sysconfig/network-scripts/{{ label }}
+    - key_values: {{ cfg }}
+    - append_if_not_found: True
     - require:
       - file: sysconfig_netcfg_{{ label | to_snake_case }}_file
 {% endfor %}
