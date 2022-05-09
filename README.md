@@ -18,7 +18,7 @@ This formula has a general *sysconfig* name, but right now its only purpose is
 to configure proxy settings and manage network configuration files for SUSE
 distributions and other RHEL/CentOS derivatives.
 
-See `pillar.example` file for configuration examples.
+See <code>[pillar.example](pillar.example)</code> file for configuration examples.
 
 ## Available states
 
