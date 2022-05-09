@@ -2,7 +2,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import sysconfig with context %}
 
-{% for label, netcfg in sysconfig.network_scripts.items() %}
+{% for label, cfg in sysconfig.network_scripts.items() %}
 sysconfig_netcfg_{{ label | to_snake_case }}_file:
   file.managed:
     - name: /etc/sysconfig/network-scripts/{{ label }}
@@ -10,9 +10,9 @@ sysconfig_netcfg_{{ label | to_snake_case }}_file:
     - group: root
     - mode: 0644
 
-sysconfig_netcfg_{{ name | to_snake_case }}_content:
+sysconfig_netcfg_{{ label | to_snake_case }}_content:
   ini.options_present:
-    - sections: {{ netcfg }}
+    - sections: {{ cfg|yaml_encode }}
     - require:
       - file: sysconfig_netcfg_{{ label | to_snake_case }}_file
 {% endfor %}
