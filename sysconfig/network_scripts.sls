@@ -13,7 +13,7 @@ sysconfig_netcfg_{{ label | to_snake_case }}_file:
 sysconfig_netcfg_{{ label | to_snake_case }}_content:
   file.keyvalue:
     - name: /etc/sysconfig/network-scripts/{{ label }}
-    - key_values: {{ cfg }}
+    - key_values: {{ cfg.items() }}
     - append_if_not_found: True
     - require:
       - file: sysconfig_netcfg_{{ label | to_snake_case }}_file
